@@ -1,0 +1,23 @@
+// changes for naming conventions
+  @Primary
+  @Bean(name = "bookEntityManagerFactory")
+  public LocalContainerEntityManagerFactoryBean entityManagerFactory1(EntityManagerFactoryBuilder builder ,
+     @Qualifier("bookDataSource") DataSource dataSource) {
+    Map<String, Object> hibernateProperties = new HashMap<>();
+    hibernateProperties.put(IMPLICIT_NAMING_STRATEGY, SpringImplicitNamingStrategy.class.getName());
+    hibernateProperties.put(PHYSICAL_NAMING_STRATEGY, CamelCaseToUnderscoresNamingStrategy.class.getName());
+    return builder
+       .dataSource(dataSource)
+       .packages(Book.class)
+       .properties(hibernateProperties)
+       .build();
+  }
+
+  public static final String IMPLICIT_NAMING_STRATEGY = "hibernate.implicit_naming_strategy";
+  public static final String PHYSICAL_NAMING_STRATEGY = "hibernate.physical_naming_strategy";
+
+// refs
+https://stackoverflow.com/questions/50567041/spring-boot-jpa-unknown-column-in-field-list
+https://www.baeldung.com/hibernate-naming-strategy
+https://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/chapters/domain/naming.html#:~:text=While%20the%20purpose%20of%20an,should%20instead%20be%20abbreviated%20acct_num%20.
+https://docs.jboss.org/hibernate/orm/4.3/javadocs/org/hibernate/cfg/EJB3NamingStrategy.html
