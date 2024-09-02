@@ -19,5 +19,6 @@
 // refs
 https://stackoverflow.com/questions/50567041/spring-boot-jpa-unknown-column-in-field-list
 https://www.baeldung.com/hibernate-naming-strategy
+https://www.baeldung.com/hibernate-field-naming-spring-boot
 https://docs.jboss.org/hibernate/orm/5.1/userguide/html_single/chapters/domain/naming.html#:~:text=While%20the%20purpose%20of%20an,should%20instead%20be%20abbreviated%20acct_num%20.
 https://docs.jboss.org/hibernate/orm/4.3/javadocs/org/hibernate/cfg/EJB3NamingStrategy.html
